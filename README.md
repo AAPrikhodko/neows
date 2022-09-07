@@ -1,46 +1,34 @@
-# Getting Started with Create React App
+Dear User,
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Here is a web application for browsing (test task) made with React and Redux. The main features are the following.
 
-## Available Scripts
+You may:
+
+- filter the date and get the information about asteroids in Result section (provided by NASA) 
+- leave the notice about an asteroid
+- use the pagination to get more information
+- use chart bar to see the details about asteroid velocity
+
+Some notices:
+
+1. About stack technology. As it was required in the task, I used react-query to implement the query for caching the results. For some client data, which not comes from server( and actually doesn't need to be cached) I used Redux state management.( e.g. for notices or for filters). For bar chart I used react-chartjs
+
+2. Note: As per task Filters work for useRecordsByDates hook only (because it receives dates as parameters). And pagination is not supported by server in this request(/rest/v1/feed).
+
+3. Pagination is supported for useBrowseObjects hook. But filters is not supported by server in this request (/rest/v1/neo/browse).
+
+4. Ideally (if we would need to combine somehow these two cases #2, #3) I would suggest either to change server request a bit and make some common logic in frontend side or to implement some kind of switcher (between #2 and #3). But not within this assessment :)
+
+5. I tried to make the project scalable, because in this case it will be easy to expand or to add new functionality in future (if needed). For example, it is easy to add new other filters (such as inputs, selects, autotests, checkboxes etc.) or even all the section with filters, results and charts (not for asteroid but for example for the stars or whatever). This approach with common logic (layouts) will allow us to it with minimal time spending. At the same time we are able to modify each section and add some individual properties(settings) in the top component.
+
+WebbApp links:
+As the task was split into two cases (#2, #3), there are two links accordingly:
+
+1. With filters: https://6318d82a1b3524038f2c4fe4--tangerine-gingersnap-31e8a2.netlify.app/
+2. With pagination: https://master--tangerine-gingersnap-31e8a2.netlify.app/
 
 In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
