@@ -37,7 +37,7 @@ const FiltersLayout = (props: IFiltersLayout) => {
 
         return (
             <Col span={1} >
-                <Button onClick={handleTodayButtonClick}>{label}</Button>
+                <Button disabled={true} onClick={handleTodayButtonClick}>{label}</Button>
             </Col>
         )
     }
@@ -50,6 +50,7 @@ const FiltersLayout = (props: IFiltersLayout) => {
         return (
             <Col span={6} title={"Date Range"}>
                 <RangePicker
+                    disabled
                     value={[moment((filtersData as any)[(id)][0]),moment((filtersData as any)[(id)][1])]}
                     allowClear={false}
                     format={DATE_FORMAT}

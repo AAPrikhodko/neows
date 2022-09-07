@@ -127,13 +127,13 @@ const TableLayout = (props: ITableLayout) => {
     let noticeArr = tableData.noticeArr
     debugger
     // const { isLoading, records } = useTodayRecords()
-    const { isLoading, records } = useRecordsByDates(filtersData.dateRange[0], filtersData.dateRange[1])
-    // const { isLoading, data } = useBrowseObjects(page, 10, noticeArr)
-    const [dataSource, setDataSource] = useState<Array<any>>(records ? records : [])
+    // const { isLoading, records } = useRecordsByDates(filtersData.dateRange[0], filtersData.dateRange[1])
+    const { isLoading, data } = useBrowseObjects(page, 10, noticeArr)
+    const [dataSource, setDataSource] = useState<Array<any>>(data?.records ? data.records : [])
 
     useEffect(()=>{
-        records && setDataSource(records)
-    }, [records])
+        data && setDataSource(data.records)
+    }, [data])
 
     const additionalColumnsSettings: ISetOfColumnsWithAdditionalSettings = {
         [TableColumns.IsPotentiallyHazardousAsteroid]: {
@@ -207,10 +207,11 @@ const TableLayout = (props: ITableLayout) => {
                             components ={components}
                         />
                         <br/>
-                        {/*<Pagination onChange={onPaginationParamsChange}*/}
-                        {/*            total={data?.total_pages}*/}
-                        {/*            current={page}*/}
-                        {/*/>*/}
+                        <Pagination onChange={onPaginationParamsChange}
+                                    total={data?.total_pages}
+                                    current={page}
+                                    showSizeChanger={false}
+                        />
                         {getBarChart(dataSource)}
                     </>
                 </Card>
