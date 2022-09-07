@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$color-primary: #192140;
+$color-secondary: #F4F7FC;
+$color-third: #606F89;
+$color-forth: #2E3B52;
+
+
+.filtersCard {
+  padding: 10px 50px 0 50px ;
+  border: none;
+}
+
+.customCard{
+  & :global {
+    border: none;
+    .ant-card-head {
+      border: none;
+      background-color: $color-secondary;
+      .ant-card-head-wrapper {
+        .ant-card-head-title {
+          color: $color-primary;
+          font: 600 12px /15px "Inter", sans-serif;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+      }
+    }
+    .ant-card-body {
+      .ant-row {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+
+

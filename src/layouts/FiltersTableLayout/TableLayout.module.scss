@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$color-primary: #192140;
+$color-secondary: #F4F7FC;
+$color-third: #606F89;
+$color-forth: #2E3B52;
+$color-fifth: #2D9CDB;
+
+
+.tableCard {
+  padding: 10px 50px 0 50px ;
+  border: none;
+}
+
+.customCard{
+  & :global {
+    border: none;
+    .ant-card-head {
+        border: none;
+        background-color: $color-secondary;
+        .ant-card-head-wrapper {
+          .ant-card-head-title {
+            color: $color-primary;
+            font: 600 12px /15px "Inter", sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+          }
+        }
+    }
+    .ant-card-body {
+      .ant-pagination {
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
+
+.customTable {
+  & :global {
+    .ant-table-thead {
+      .ant-table-cell {
+        background-color: $color-secondary;
+        color: $color-third;
+        font: 600 12px /15px "Inter", sans-serif;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+        .ant-table-column-title {
+          flex: none;
+          display: contents;
+          white-space: normal;
+          color: $color-third;
+          font: 600 12px /15px "Inter", sans-serif;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+       }
+    }
+    .ant-table-tbody {
+      tr:nth-child(even) {
+        background: $color-secondary;
+      }
+      .ant-table-row {
+        .ant-table-cell:nth-child(2) {
+          font-weight: 700;
+          color: $color-fifth;
+        }
+      }
+      .ant-table-cell{
+        font: normal 400 14px /17px "Inter", sans-serif;
+        color: $color-forth;
+
+        .editable-cell {
+          position: relative;
+        }
+
+        .editable-cell-value-wrap {
+          padding: 5px 12px;
+          cursor: pointer;
+        }
+
+        .editable-row:hover .editable-cell-value-wrap {
+          padding: 4px 11px;
+          border: 1px solid #d9d9d9;
+          border-radius: 2px;
+        }
+
+        [data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {
+          border: 1px solid #434343;
+        }
+      }
+    }
+  }
+}
